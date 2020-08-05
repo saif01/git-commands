@@ -1,0 +1,152 @@
+
+//Delete init in Local  Repository
+git rm -rf .git
+
+//present working path
+pwd
+
+
+//Content List
+ls
+
+
+//Add All file in stage
+git add --a    
+
+or 
+
+git add .
+
+
+//Check Status
+git status
+
+
+//Comment
+git commit -m "messageeeee"
+
+
+/////////////////////////////////// log //////////////////////////////
+
+// All Comment Logs
+git log
+
+//All Comment log with addition deletion
+git log -p
+
+//last 2 days Logs
+git log --since=2.days
+
+//last 2 weeks Logs
+git log --since=2.weeks
+
+//last 2 months Logs
+git log --since=2.months
+
+//last 2 years Logs
+git log --since=2.years
+
+
+
+
+
+//Unstage last staged single file 
+git restore --staged <file>...
+
+
+
+
+
+//Come back in last commit for single file
+git checkout -- <file>...  
+
+//Come back in last commit for all file
+git checkout -f
+
+
+
+/////////////////////////////////////////////// Alias //////////////////////////////
+
+//Git Alias (Commands are make to short form)
+
+git config --global alias.st status
+git config --global alias.aa 'add .'
+git config --global alias.cm 'commit -m'
+git config --global alias.st 'status'
+git config --global alias.pom 'push origin master'
+
+//unset single alias
+git config --global --unset alias.YourAlias
+
+//All alias List 
+git config --list | findstr "alias"
+
+[alias]
+	co = checkout
+	cob = checkout -b
+	coo = !git fetch && git checkout
+	br = branch
+	brd = branch -d
+	brD = branch -D
+	merged = branch --merged
+	st = status
+	aa = add -A .
+	cm = commit -m
+	aacm = !git add -A . && git commit -m
+	cp = cherry-pick
+	amend = commit --amend -m
+	dev = !git checkout dev && git pull origin dev
+	staging = !git checkout staging && git pull origin staging
+	master = !git checkout master && git pull origin 
+	po = push origin
+	pod = push origin dev
+	pos = push origin staging
+	pom = push origin master
+	poh = push origin HEAD
+	pogm = !git push origin gh-pages && git checkout master && git pull origin master && git rebase gh-pages && git push origin master && git checkout gh-pages
+	pomg = !git push origin master && git checkout gh-pages && git pull origin gh-pages && git rebase master && git push origin gh-pages && git checkout master
+	plo = pull origin
+	plod = pull origin dev
+	plos = pull origin staging
+	plom = pull origin master
+	ploh = pull origin HEAD
+	unstage = reset --soft HEAD^
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	f = "!git ls-files | grep -i"
+	gr = grep -Ii
+	la = "!git config -l | grep alias | cut -c 7-"
+
+
+
+
+
+
+
+//Compare Current working area to staged area
+git diff
+
+//Compare last Commit to staged area
+git diff --staged
+
+
+////////////////////////////////////// branch ///////////////////////////////
+
+//create new branch
+git checkout -b <branch-name>.. //git checkout -b develop
+
+//switch branch
+git checkout <branch-name>..  //git checkout master
+
+//all branches
+git branch
+
+
+////////// marge /////////
+
+//branch pull to master
+it pull origin <branch-name>..   //git pull origin master
+
+//merge branch to master
+git merge <branch-name>..   //git merge develop
+
